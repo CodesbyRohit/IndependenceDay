@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🇮🇳 79th Independence Day — Cinematic Celebration</title>
+  <link rel="preload" as="audio" href="https://archive.org/download/scottbuckley_titan/scottbuckley_titan.mp3">
+
+  <style>
+    /* === CSS from style.css === */
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111111;
+      background: #ffffff;
+    }
+    .waves {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -2;
+      background:
+        radial-gradient(1200px 600px at 50% -20%, rgba(255,153,51,0.30), transparent 60%),
+        radial-gradient(1200px 600px at 50% 120%, rgba(19,136,8,0.30), transparent 60%),
+        #ffffff;
+      filter: saturate(120%);
+    }
+    .wave {
+      position: absolute;
+      left: -10%;
+      width: 140%;
+      height: 40%;
+      opacity: 0.55;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
+      animation: slide 12s linear infinite;
+    }
+    .w1 { top: -6%; background: linear-gradient(180deg, #ff9933, #ffb067); animation-duration: 16s; }
+    .w2 { top: 32%; background: linear-gradient(180deg, #fdfdfd, #f2f2f2); animation-duration: 20s; }
+    .w3 { bottom: -6%; background: linear-gradient(180deg, #49b55a, #138808); animation-duration: 18s; }
+    @keyframes slide {
+      0% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(7%) translateY(6px); }
+      100% { transform: translateX(0) translateY(0); }
+    }
+    header {
+      text-align: center;
+      padding: 24px 12px 10px;
+    }
+    h1 {
+      margin: 8px 0;
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      text-shadow: 0 2px 0 #ffffff, 0 18px 60px rgba(0,0,0,0.25);
+    }
+    .subtitle {
+      margin: 0;
+      font-size: 18px;
+      opacity: 0.9;
+    }
+    @media (max-width: 900px) {
+      h1 { font-size: 44px; }
+      .subtitle { font-size: 16px; }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 34px; }
+      .subtitle { font-size: 15px; }
+    }
+    .flag-wrap {
+      margin: 18px auto;
+      width: 92vw;
+      max-width: 860px;
+      perspective: 1200px;
+    }
+    .flag {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      transform: rotateY(-10deg) rotateX(2deg);
+      box-shadow: 0 14px 48px rgba(0,0,0,0.25);
+    }
+    .flag-aspect {
+      width: 100%;
+      height: 0;
+      padding-bottom: 66.666%;
+      position: relative;
+    }
+    .flag-aspect > svg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      display: block;
+    }
+    .flag::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      mix-blend-mode: multiply;
+      opacity: 0.35;
+      background: linear-gradient(0deg, rgba(0,0,0,0.09) 9%, transparent 10% 18%, rgba(0,0,0,0.07) 19%, transparent 20%);
+      animation: cloth 3.4s ease-in-out infinite;
+    }
+    @keyframes cloth {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-18px); }
+    }
+    .balloon {
+      position: fixed;
+      bottom: -10vh;
+      width: 28px;
+      height: 36px;
+      border-radius: 50%;
+      box-shadow: inset -6px -10px 18px rgba(0,0,0,0.18);
+      opacity: 0.9;
+      z-index: 5;
+      animation: rise 20s linear infinite;
+    }
+    .balloon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 2px;
+      height: 16vh;
+      background: rgba(0,0,0,0.25);
+      transform: translateX(-50%);
+    }
+    .b1 { background: #ff9933; }
+    .b2 { background: #eeeeee; }
+    .b3 { background: #138808; }
+    @keyframes rise {
+      0% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-30vh) translateX(8px); }
+      50% { transform: translateY(-60vh) translateX(-6px); }
+      75% { transform: translateY(-90vh) translateX(6px); }
+      100% { transform: translateY(-120vh) translateX(0); }
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 16px auto;
+    }
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 18px;
+      cursor: pointer;
+      background: linear-gradient(180deg, #ffffff, #f1f1f1);
+      box-shadow: 0 14px 48px rgba(0,0,0,0.25);
+      font-weight: 800;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0) scale(0.98); }
+    .btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+    .btn-primary { background: linear-gradient(180deg, #ffb067, #ff9933); color: #222222; }
+    .btn-ghost { background: rgba(255,255,255,0.86); }
+    canvas.fx {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+      mix-blend-mode: screen;
+    }
+    .section {
+      width: 94vw;
+      max-width: 1100px;
+      margin: 22px auto 34px;
+      background: rgba(255,255,255,0.90);
+      border-radius: 18px;
+      box-shadow: 0 14px 48px rgba(0,0,0,0.25);
+      padding: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      padding: 16px;
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 8px 26px rgba(0,0,0,0.08);
+    }
+    .card h3 { margin: 0 0 6px; }
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      background: #f1f5f9;
+    }
+    footer {
+      text-align: center;
+      padding: 18px 10px 40px;
+      color: #333333;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wave, .flag::after, canvas.fx, .balloon { animation: none; }
+    }
+    @media (max-width: 420px) {
+      .controls { gap: 8px; }
+      .btn { padding: 10px 12px; font-size: 14px; }
+      .section { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Waves -->
+  <div class="waves">
+    <div class="wave w1"></div>
+    <div class="wave w2"></div>
+    <div class="wave w3"></div>
+  </div>
+
+  <!-- Fireworks -->
+  <canvas class="fx" id="fx" aria-label="Fireworks"></canvas>
+
+  <!-- Header -->
+  <
